@@ -188,8 +188,7 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: disney,
-    source_code_link: "https://github.com/famousfields/DisneyPlusClone",
+    image: disney
   },
 ];
 
