@@ -119,33 +119,33 @@ const experiences = [
   
 ];
 
-const testimonials = [
-  {
-    testimonial:
-      "My nephew",
-    name: "Greg Fields",
-    designation: "Software Engineer",
-    company: "Walt Disney Company",
-    //image: "https://randomuser.me/api/portraits/women/4.jpg",
-  },
-  {
-    testimonial:
-      "William is a highly motivated and reliable individual, known for his strong problem-solving skills and attention to detail. His ability to collaborate effectively and deliver outstanding results consistently makes him an excellent candidate for any role.",
-    name: "Greg Fields",
-    designation: "Software Engineer",
-    company: "Walt Disney Company",
-    //image: "https://randomuser.me/api/portraits/women/4.jpg",
-  },
-  {
-    testimonial:
-      "William's exceptional analytical skills and meticulous attention to detail make him an invaluable asset to any team. His proactive approach and strong work ethic consistently drive outstanding results, ensuring success in every project he undertakes.",
-    name: "Leon Lightfoot",
-    designation: "Systems Engineer",
-    company: "GEICO",
-    //image: "https://randomuser.me/api/portraits/women/4.jpg",
-  },
+// const testimonials = [
+//   {
+//     testimonial:
+//       "William is a very charismatic and open-minded person. It was a pleasure having him in my class",
+//     name: "Greg Fields",
+//     designation: "Software Engineer",
+//     company: "Walt Disney Company",
+//     //image: "https://randomuser.me/api/portraits/women/4.jpg",
+//   },
+//   {
+//     testimonial:
+//       "William is a highly motivated and reliable individual, known for his strong problem-solving skills and attention to detail. His ability to collaborate effectively and deliver outstanding results consistently makes him an excellent candidate for any role.",
+//     name: "Greg Fields",
+//     designation: "Software Engineer",
+//     company: "Walt Disney Company",
+//     //image: "https://randomuser.me/api/portraits/women/4.jpg",
+//   },
+//   {
+//     testimonial:
+//       "William's exceptional analytical skills and meticulous attention to detail make him an invaluable asset to any team. His proactive approach and strong work ethic consistently drive outstanding results, ensuring success in every project he undertakes.",
+//     name: "Leon Lightfoot",
+//     designation: "Systems Engineer",
+//     company: "GEICO",
+//     //image: "https://randomuser.me/api/portraits/women/4.jpg",
+//   },
  
-];
+// ];
 
 const projects = [
   
