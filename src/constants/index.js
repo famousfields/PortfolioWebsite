@@ -15,6 +15,7 @@ import {
   cpp,
   akai,
   disney,
+  SwiftJump,
   aslive
 } from "../assets";
 
@@ -39,6 +40,10 @@ const services = [
     icon: web,
   },
   {
+    title: "Level Creator",
+    icon: creator,
+  },
+  {
     title: "Web Developer",
     icon: mobile,
   },
@@ -46,10 +51,7 @@ const services = [
     title: "Optimist",
     icon: backend,
   },
-  {
-    title: "Level Creator",
-    icon: creator,
-  },
+  ,
 ];
 
 const technologies = [
@@ -93,7 +95,9 @@ const experiences = [
     iconBg: "#E6DEDD",
     date: "April 2021 - January 2022",
     points: [
-      "I was given the role of the banker at a poker room, this involved extreme attention to detail when calculating payments on a per hand basis for players at the table.",
+      "Designated Player at a poker room",
+      "My role was to sit at the table while hands are dealt, monitor the game, pay out winnings, and collect losses.",
+      "Working here involved extreme attention to detail when calculating payments on a per hand basis for players at the table.",
       "Collaborated in meetings and worked as part of a team to guarantee and maintain integrity in the poker room at all times.",
       ,
     ],
@@ -124,14 +128,51 @@ const testimonials = [
     company: "Walt Disney Company",
     //image: "https://randomuser.me/api/portraits/women/4.jpg",
   },
+  {
+    testimonial:
+      "William is a highly motivated and reliable individual, known for his strong problem-solving skills and attention to detail. His ability to collaborate effectively and deliver outstanding results consistently makes him an excellent candidate for any role.",
+    name: "Greg Fields",
+    designation: "Software Engineer",
+    company: "Walt Disney Company",
+    //image: "https://randomuser.me/api/portraits/women/4.jpg",
+  },
+  {
+    testimonial:
+      "William's exceptional analytical skills and meticulous attention to detail make him an invaluable asset to any team. His proactive approach and strong work ethic consistently drive outstanding results, ensuring success in every project he undertakes.",
+    name: "Leon Lightfoot",
+    designation: "Systems Engineer",
+    company: "GEICO",
+    //image: "https://randomuser.me/api/portraits/women/4.jpg",
+  },
  
 ];
 
 const projects = [
+  
+    {
+      name: "Swift Jump",
+      description:
+        "*In Development* Action and adventure endless runner with dynamic environments and live actors",
+      tags: [
+        {
+          name: "Unreal Engine",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "C++",
+          color: "green-text-gradient",
+        },
+        {
+          name: "Visual Studio",
+          color: "pink-text-gradient",
+        },
+      ],
+      image: SwiftJump,
+  },
   {
     name: "Akai's Adventures",
     description:
-      "Level based action and adventure game using Unreal Engine 5 and C++",
+      "Level based action and adventure environment using Unreal Engine 5 and C++",
     tags: [
       {
         name: "Unreal Engine 5",
@@ -170,26 +211,7 @@ const projects = [
     image: aslive,
     source_code_link: "https://github.com/NrgNinja/ASLive",
   },
-  {
-    name: "Swift Jump",
-    description:
-      "Action and adventure endless runner with dynamic environments and live actors",
-    tags: [
-      {
-        name: "Unreal Engine",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "C++",
-        color: "green-text-gradient",
-      },
-      {
-        name: "Visual Studio",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: disney
-  },
+  
 ];
 
 export { services, technologies, experiences, testimonials, projects };

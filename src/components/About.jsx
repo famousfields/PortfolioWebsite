@@ -47,9 +47,8 @@ const About = () => {
         variants={fadeIn("", "", 0.1, 1)}
         className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'
       >
-        I'm a skilled software developer with experience in Unreal Engine, C++ and
-        JavaScript, along with knowledge of frameworks like React, Node.js and Three.js. My goal is to contribute to innovative and high-quality software solutions that meet user needs. I'm a quick learner and thrive in team based environments.
-        A few hobbies of mine are exersise and fishing!
+        I'm a skilled software developer with experience in Unreal Engine, C++, and full-stack development primarily including LAMP and MERN stacks. My goal is to contribute to innovative and high-quality software solutions and make an impact within a SDLC team based environment.
+        A few things I have always enjoyed are gaming, sports, exersise and fishing!
       </motion.p>
 
       <div className='mt-20 flex flex-wrap gap-10'>

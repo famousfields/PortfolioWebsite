@@ -29,6 +29,7 @@ import knighted from "./company/knighted.png"
 import akai from "./Akai.png";
 import disney from "./Disney.png"
 import aslive from "./ASLive.png"
+import SwiftJump from "./SwiftJump.png"
 
 
 export {
@@ -60,4 +61,5 @@ export {
   akai,
   disney,
   aslive,
+  SwiftJump
 };
