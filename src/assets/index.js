@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import backend from "./backend.png";
 import creator from "./creator.png";
 import mobile from "./mobile.png";
@@ -22,6 +21,7 @@ import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
 import unrealEngine from "./tech/unrealEngine.png";
 import cpp from "./tech/cpp.png";
+import logo from "./logo.svg"
 
 import maximumEntertainment from "./company/maxent.png";
 import knighted from "./company/knighted.png"
