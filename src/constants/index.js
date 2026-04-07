@@ -13,7 +13,6 @@ import {
   threejs,
   unrealEngine,
   cpp,
-  akai,
   disney,
   SwiftJump,
   aslive
@@ -120,34 +119,39 @@ const experiences = [
 ];
 
 const projects = [
-  
-    {
-      name: "Swift Jump",
-      description:
-        "*In Development* Action and adventure endless runner with dynamic environments and live actors",
-      tags: [
-        {
-          name: "Unreal Engine",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "C++",
-          color: "green-text-gradient",
-        },
-        {
-          name: "Visual Studio",
-          color: "pink-text-gradient",
-        },
-      ],
-      image: SwiftJump,
-  },
   {
-    name: "Akai's Adventures",
+    name: "Appointment Assistant",
     description:
-      "Level based action and adventure environment using Unreal Engine 5 and C++",
+      "Full-stack appointment scheduling app that helps users book, manage, and stay organized with upcoming appointments.",
     tags: [
       {
-        name: "Unreal Engine 5",
+        name: "React.js",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Node.js",
+        color: "green-text-gradient",
+      },
+      {
+        name: "MySQL",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "Codex",
+        color: "green-text-gradient",
+      },
+    ],
+    image: web,
+    source_code_link: "https://github.com/famousfields/AppointmentAssistant",
+    live_demo_link: "https://appointmentassistant.netlify.app",
+  },
+  {
+    name: "Swift Jump",
+    description:
+      "*In Development* Action and adventure endless runner with dynamic environments and live actors",
+    tags: [
+      {
+        name: "Unreal Engine",
         color: "blue-text-gradient",
       },
       {
@@ -159,8 +163,7 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: akai,
-    source_code_link: "https://github.com/",
+    image: SwiftJump,
   },
   {
     name: "ASLive",
@@ -178,6 +181,10 @@ const projects = [
       {
         name: "React.js",
         color: "pink-text-gradient",
+      },
+      {
+        name: "AWS",
+        color: "blue-text-gradient",
       },
     ],
     image: aslive,
