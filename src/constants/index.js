@@ -39,7 +39,7 @@ const services = [
     icon: web,
   },
   {
-    title: "Level Creator",
+    title: "ML Enthusiast",
     icon: creator,
   },
   {
