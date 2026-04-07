@@ -47,8 +47,7 @@ const About = () => {
         variants={fadeIn("", "", 0.1, 1)}
         className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'
       >
-        I'm a skilled software developer with experience in Unreal Engine, C++, and full-stack development primarily including LAMP and MERN stacks. My goal is to contribute to innovative and high-quality software solutions and make an impact within a SDLC team based environment.
-        A few things I have always enjoyed are gaming, sports, exersise and fishing!
+        I’m a software developer with hands-on experience in Unreal Engine, C++, and full stack development across LAMP and MERN stacks. I enjoy building efficient, scalable solutions and thrive in collaborative SDLC team environments where I can solve complex problems and contribute to meaningful, high-impact projects. I’ve built and deployed multiple applications that improve performance and user experience. Outside of coding, I enjoy gaming, sports, and fishing, which help me stay focused, strategic, and persistent in everything I do.
       </motion.p>
 
       <div className='mt-20 flex flex-wrap gap-10'>
