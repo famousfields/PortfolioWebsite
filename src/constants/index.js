@@ -189,6 +189,7 @@ const projects = [
     ],
     image: aslive,
     source_code_link: "https://github.com/NrgNinja/ASLive",
+    live_demo_link: "https://asl-live.com/",
   },
   
 ];
