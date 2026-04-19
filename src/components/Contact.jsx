@@ -13,21 +13,14 @@ const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 const CONTACT_TO_NAME = import.meta.env.VITE_CONTACT_TO_NAME || "William Fields";
 const CONTACT_TO_EMAIL =
   import.meta.env.VITE_CONTACT_TO_EMAIL || "willfields92@gmail.com";
+const GENERIC_ERROR_MESSAGE = `Something went wrong while sending your message. Please try again, or email me directly at ${CONTACT_TO_EMAIL}.`;
 
 const getFriendlyErrorMessage = (error) => {
   if (error?.status === 429) {
     return "Too many messages were sent too quickly. Please wait a moment and try again.";
   }
 
-  if (error?.status === 401 || error?.status === 403) {
-    return "The email service rejected this request. Check your EmailJS keys and allowed site origins.";
-  }
-
-  if (typeof error?.text === "string" && error.text.trim()) {
-    return `Email service error: ${error.text.trim()}`;
-  }
-
-  return "The message could not be sent right now. Please try again in a moment.";
+  return GENERIC_ERROR_MESSAGE;
 };
 
 const Contact = () => {
@@ -59,8 +52,7 @@ const Contact = () => {
     if (window.location.protocol === "file:") {
       setSubmitStatus({
         type: "error",
-        message:
-          "This form must be opened from a website or local dev server, not directly from dist/index.html. Use `npm run dev`, `npm run serve`, or deploy the site before testing email sending.",
+        message: GENERIC_ERROR_MESSAGE,
       });
       return;
     }
@@ -68,8 +60,7 @@ const Contact = () => {
     if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
       setSubmitStatus({
         type: "error",
-        message:
-          "EmailJS is not configured yet. Add VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, and VITE_EMAILJS_PUBLIC_KEY to your environment before sending messages.",
+        message: GENERIC_ERROR_MESSAGE,
       });
       return;
     }
