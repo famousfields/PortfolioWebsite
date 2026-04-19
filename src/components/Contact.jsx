@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
@@ -7,6 +7,29 @@ import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+const CONTACT_TO_NAME = import.meta.env.VITE_CONTACT_TO_NAME || "William Fields";
+const CONTACT_TO_EMAIL =
+  import.meta.env.VITE_CONTACT_TO_EMAIL || "willfields92@gmail.com";
+
+const getFriendlyErrorMessage = (error) => {
+  if (error?.status === 429) {
+    return "Too many messages were sent too quickly. Please wait a moment and try again.";
+  }
+
+  if (error?.status === 401 || error?.status === 403) {
+    return "The email service rejected this request. Check your EmailJS keys and allowed site origins.";
+  }
+
+  if (typeof error?.text === "string" && error.text.trim()) {
+    return `Email service error: ${error.text.trim()}`;
+  }
+
+  return "The message could not be sent right now. Please try again in a moment.";
+};
+
 const Contact = () => {
   const formRef = useRef();
   const [form, setForm] = useState({
@@ -14,8 +37,11 @@ const Contact = () => {
     email: "",
     message: "",
   });
-
   const [loading, setLoading] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState({
+    type: "",
+    message: "",
+  });
 
   const handleChange = (e) => {
     const { target } = e;
@@ -27,43 +53,65 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (window.location.protocol === "file:") {
+      setSubmitStatus({
+        type: "error",
+        message:
+          "This form must be opened from a website or local dev server, not directly from dist/index.html. Use `npm run dev`, `npm run serve`, or deploy the site before testing email sending.",
+      });
+      return;
+    }
+
+    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+      setSubmitStatus({
+        type: "error",
+        message:
+          "EmailJS is not configured yet. Add VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, and VITE_EMAILJS_PUBLIC_KEY to your environment before sending messages.",
+      });
+      return;
+    }
+
+    setSubmitStatus({
+      type: "",
+      message: "",
+    });
     setLoading(true);
-//HTOSUt-thm7wkTw9z
-//template_7n6y2im
-//service_hcy4jp6
-    emailjs
-      .send(
-        'service_hcy4jp6',
-        'template_7n6y2im',
+
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
         {
-          from_name: form.name,
-          to_name: "William Fields",
-          from_email: form.email,
-          to_email: "willfields92@gmail.com",
-          message: form.message,
+          from_name: form.name.trim(),
+          to_name: CONTACT_TO_NAME,
+          from_email: form.email.trim(),
+          to_email: CONTACT_TO_EMAIL,
+          message: form.message.trim(),
         },
-        'HTOSUt-thm7wkTw9z'
-      )
-      .then(
-        () => {
-          setLoading(false);
-          alert("Thank you. I will get back to you as soon as possible.");
-
-          setForm({
-            name: "",
-            email: "",
-            message: "",
-          });
-        },
-        (error) => {
-          setLoading(false);
-          console.error(error);
-
-          alert("Something went wrong. Please try again.");
-        }
+        EMAILJS_PUBLIC_KEY
       );
+
+      setSubmitStatus({
+        type: "success",
+        message: "Thank you. I will get back to you as soon as possible.",
+      });
+      setForm({
+        name: "",
+        email: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("EmailJS send failed:", error);
+      setSubmitStatus({
+        type: "error",
+        message: getFriendlyErrorMessage(error),
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -89,6 +137,8 @@ const Contact = () => {
               name='name'
               value={form.name}
               onChange={handleChange}
+              required
+              autoComplete='name'
               placeholder="What's your name?"
               className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
             />
@@ -100,6 +150,8 @@ const Contact = () => {
               name='email'
               value={form.email}
               onChange={handleChange}
+              required
+              autoComplete='email'
               placeholder="What's your email?"
               className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
             />
@@ -111,13 +163,25 @@ const Contact = () => {
               name='message'
               value={form.message}
               onChange={handleChange}
+              required
               placeholder='What you want to say?'
               className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
             />
           </label>
 
+          {submitStatus.message ? (
+            <p
+              className={`text-sm ${
+                submitStatus.type === "error" ? "text-red-300" : "text-green-300"
+              }`}
+            >
+              {submitStatus.message}
+            </p>
+          ) : null}
+
           <button
             type='submit'
+            disabled={loading}
             className='bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary'
           >
             {loading ? "Sending..." : "Send"}
